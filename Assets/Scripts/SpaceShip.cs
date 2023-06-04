@@ -123,6 +123,11 @@ namespace SpaceShooter
             m_Rigidbody2D.AddTorque(TorqueControl * m_Mobility * Time.fixedDeltaTime, ForceMode2D.Force);
 
             m_Rigidbody2D.AddTorque(-m_Rigidbody2D.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            if (m_Rigidbody2D.velocity.magnitude <= 3)
+            {
+                ThrustControl = 0;
+            }
         }
 
         [SerializeField] private Turret[] m_Turrets;
@@ -158,7 +163,7 @@ namespace SpaceShooter
         {
             m_Speed = speed;
             m_Thrust += speed;
-            StartCoroutine(YourCoroutine());   
+            StartCoroutine(YourCoroutine());
         }
 
         public void AddIndestructible()
@@ -174,7 +179,7 @@ namespace SpaceShooter
 
         private void UpdateEnergyRegen()
         {
-            m_PrimaryEnergy += (float) m_EnergyRegenPerSecond * Time.fixedDeltaTime;
+            m_PrimaryEnergy += (float)m_EnergyRegenPerSecond * Time.fixedDeltaTime;
 
             m_PrimaryEnergy = Mathf.Clamp(m_PrimaryEnergy, 0, m_MaxEnergy);
         }
