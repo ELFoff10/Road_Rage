@@ -1,14 +1,15 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody2D))]
 public class CarController : MonoBehaviour
 {
     [Header("Car settings")]
     [SerializeField] private float _driftFactor = 0.95f;
-    [SerializeField] private float _accelarationFactor = 30.0f;
+    [SerializeField] private float _accelerationFactor = 30.0f;
     [SerializeField] private float _turnFactor = 3.5f;
     [SerializeField] private float _maxSpeed = 20.0f;
 
-    private float _accelerationInput = 0;
+    private float _accelerationInput = 1;
     private float _steeringInput = 0;
     private float _rotationAngle = 0;
     private float _velocityVsUp = 0;
@@ -62,7 +63,7 @@ public class CarController : MonoBehaviour
             _carRigidbody2D.drag = 0;
         }
 
-        Vector2 engineForceVector = transform.up * _accelerationInput * _accelarationFactor;
+        Vector2 engineForceVector = transform.up * _accelerationInput * _accelerationFactor;
 
         _carRigidbody2D.AddForce(engineForceVector, ForceMode2D.Force);
     }
@@ -86,9 +87,33 @@ public class CarController : MonoBehaviour
         _carRigidbody2D.velocity = forwardVelocity + rightVelocity * _driftFactor;
     }
 
+    private float GetLateralVelocity()
+    {
+        return Vector2.Dot(transform.right, _carRigidbody2D.velocity);
+    }
+
+    public bool IsTireScreeching(out float lateralVelocity, out bool isBreaking)
+    {
+        lateralVelocity = GetLateralVelocity();
+        isBreaking = false;
+
+        if (_accelerationInput < 0 && _velocityVsUp > 0)
+        {
+            isBreaking = true;
+            return true;
+        }
+
+        if (Mathf.Abs(GetLateralVelocity()) > 1.0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public void SetInputVector(Vector2 inputVector)
     {
         _steeringInput = inputVector.x;
-        _accelerationInput = inputVector.y;
+        //_accelerationInput = inputVector.y;
     }
 }
