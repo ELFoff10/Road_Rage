@@ -5,9 +5,9 @@ public class CarController : MonoBehaviour
 {
     [Header("Car settings")]
     [SerializeField] private float _driftFactor = 0.95f;
-    [SerializeField] private float _accelerationFactor = 30.0f;
-    [SerializeField] private float _turnFactor = 3.5f;
-    [SerializeField] private float _maxSpeed = 20.0f;
+    [SerializeField] private float _accelerationFactor = 5f;
+    [SerializeField] private float _turnFactor = 3f;
+    [SerializeField] private float _maxSpeed = 7f;
 
     private float _accelerationInput = 1;
     private float _steeringInput = 0;
@@ -41,8 +41,8 @@ public class CarController : MonoBehaviour
             return;
         }
 
-        // Limit so we cannot go faster than the 50% of max speed in the "reverse" direction
-        if (_velocityVsUp < _maxSpeed * 0.5f && _accelerationInput < 0)
+        // Limit so we cannot go faster than the 25% of max speed in the "reverse" direction
+        if (_velocityVsUp < _maxSpeed * 0.25f && _accelerationInput < 0)
         {
             return;
         }

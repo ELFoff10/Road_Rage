@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(TrailRenderer))]
 public class WheelTrail : MonoBehaviour
 {
     [SerializeField] private CarController _carController;
+
     private TrailRenderer _trailRenderer;
 
     private void Awake()

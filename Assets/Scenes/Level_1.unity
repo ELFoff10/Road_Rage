@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1821786817}
   - {fileID: 567338388}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1609878489}
 --- !u!1 &430429240
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 15
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 299518753}
   - {fileID: 869495266}
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1609878489}
 --- !u!4 &473752594
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 473752593}
   - {fileID: 1262781691}
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1262781691}
   - {fileID: 473752593}
@@ -1096,7 +1096,6 @@ GameObject:
   m_Component:
   - component: {fileID: 778274688}
   - component: {fileID: 778274692}
-  - component: {fileID: 778274691}
   - component: {fileID: 778274690}
   - component: {fileID: 778274689}
   m_Layer: 0
@@ -1168,19 +1167,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &778274691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778274687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2944c9ef06ac87468888ff8b0b85817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CarAiBehaviour: 1
 --- !u!212 &778274692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1411,7 +1397,6 @@ GameObject:
   m_Component:
   - component: {fileID: 842207932}
   - component: {fileID: 842207936}
-  - component: {fileID: 842207935}
   - component: {fileID: 842207934}
   - component: {fileID: 842207933}
   m_Layer: 0
@@ -1483,19 +1468,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &842207935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842207931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2944c9ef06ac87468888ff8b0b85817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CarAiBehaviour: 1
 --- !u!212 &842207936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1577,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1821786817}
   - {fileID: 567338388}
@@ -1894,7 +1866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4811637175553453504, guid: 92aaea2d91f8a8244be170d7fc93b821, type: 3}
       propertyPath: _maxSpeed
-      value: 9.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4811637175553453504, guid: 92aaea2d91f8a8244be170d7fc93b821, type: 3}
       propertyPath: _accelerationFactor
@@ -1999,7 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1609878489}
 --- !u!4 &1262781692
@@ -2953,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 439364151}
 --- !u!1 &1614471484
@@ -3506,7 +3478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1262781691}
   - {fileID: 473752593}
@@ -3654,7 +3626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2006c09511da9c4694bc5d79f3e4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToReachWayPoint: 5
+  MinDistanceToReachWayPoint: 5
   NextWayPointNode:
   - {fileID: 1821786817}
   - {fileID: 567338388}
@@ -3753,7 +3725,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2050772776}
   - component: {fileID: 2050772780}
-  - component: {fileID: 2050772779}
   - component: {fileID: 2050772778}
   - component: {fileID: 2050772777}
   m_Layer: 0
@@ -3825,19 +3796,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2050772779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050772775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2944c9ef06ac87468888ff8b0b85817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CarAiBehaviour: 1
 --- !u!212 &2050772780
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3900,7 +3858,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2053533346}
   - component: {fileID: 2053533345}
-  - component: {fileID: 2053533347}
   - component: {fileID: 2053533349}
   - component: {fileID: 2053533348}
   m_Layer: 0
@@ -3977,19 +3934,6 @@ Transform:
   m_Father: {fileID: 332054466}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2053533347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053533344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2944c9ef06ac87468888ff8b0b85817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CarAiBehaviour: 1
 --- !u!61 &2053533348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4136,7 +4080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4811637175553453504, guid: 92aaea2d91f8a8244be170d7fc93b821, type: 3}
       propertyPath: _maxSpeed
-      value: 9.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4811637175553453504, guid: 92aaea2d91f8a8244be170d7fc93b821, type: 3}
       propertyPath: _accelerationFactor

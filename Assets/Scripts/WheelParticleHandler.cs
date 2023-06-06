@@ -6,8 +6,8 @@ public class WheelParticleHandler : MonoBehaviour
 
     private float _particleEmissionRate = 0;
 
-    ParticleSystem _particleSystemSmoke;
-    ParticleSystem.EmissionModule _particleSystemEmissionModule;
+    private ParticleSystem _particleSystemSmoke;
+    private ParticleSystem.EmissionModule _particleSystemEmissionModule;
 
     private void Awake()
     {

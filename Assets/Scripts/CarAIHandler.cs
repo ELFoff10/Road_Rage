@@ -73,7 +73,7 @@ public class CarAIHandler : MonoBehaviour
 
             float distanceToWayPoint = (_targetPosition - transform.position).magnitude;
 
-            if (distanceToWayPoint <= _currentWayPoint.minDistanceToReachWayPoint)
+            if (distanceToWayPoint <= _currentWayPoint.MinDistanceToReachWayPoint)
             {
                 _currentWayPoint = _currentWayPoint.NextWayPointNode
                     [Random.Range(0, _currentWayPoint.NextWayPointNode.Length)];
