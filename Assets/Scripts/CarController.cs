@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody2D))]
@@ -9,6 +10,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _turnFactor = 3f;
     [SerializeField] private float _maxSpeed = 7f;
 
+    private float _defaultSpeed;
+
     private float _accelerationInput = 1;
     private float _steeringInput = 0;
     private float _rotationAngle = 0;
@@ -19,6 +22,7 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _carRigidbody2D = GetComponent<Rigidbody2D>();
+        _defaultSpeed = _maxSpeed;
     }
 
     private void FixedUpdate()
@@ -115,5 +119,28 @@ public class CarController : MonoBehaviour
     {
         _steeringInput = inputVector.x;
         //_accelerationInput = inputVector.y;
+    }
+
+    public void AddSpeed(float speed)
+    {
+        _maxSpeed = speed;
+
+        StartCoroutine(YourCoroutine());
+    }
+
+    public void SlowSpeed(float speed)
+    {
+        _maxSpeed = speed;
+
+
+        StartCoroutine(YourCoroutine());
+    }
+
+    IEnumerator YourCoroutine()
+    {
+        //Vector2 engineForceVector = transform.up * _accelerationInput * _accelerationFactor;
+        //_carRigidbody2D.AddForce(engineForceVector, ForceMode2D.Force);
+        yield return new WaitForSeconds(3f);
+        _maxSpeed = _defaultSpeed;
     }
 }
