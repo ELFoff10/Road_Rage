@@ -23,12 +23,13 @@ public class PowerupStats : Powerup
         //    car.AddAmmo((int)m_Value);
         //}
 
+
         if (_effectType == EffectType.AddSpeed)
         {
             car.AddSpeed(_value);
         }
 
-        if (_effectType == EffectType.AddSpeed)
+        if (_effectType == EffectType.SlowSpeed)
         {
             car.SlowSpeed(_value);
         }

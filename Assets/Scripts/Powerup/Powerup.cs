@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PolygonCollider2D))]
@@ -9,9 +7,12 @@ public abstract class Powerup : MonoBehaviour
     {
         CarController car = collision.transform.root.GetComponent<CarController>();
 
-        OnPickedUp(car);        
+        if (car != null)
+        {
+            OnPickedUp(car);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 
     protected abstract void OnPickedUp(CarController car);

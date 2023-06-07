@@ -10,7 +10,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _turnFactor = 3f;
     [SerializeField] private float _maxSpeed = 7f;
 
-    private float _defaultSpeed;
+    private float _defaultSpeedBeforeAddSpeed;
+    private float _defaultSpeedBeforeSlowSpeed;
 
     private float _accelerationInput = 1;
     private float _steeringInput = 0;
@@ -22,7 +23,6 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _carRigidbody2D = GetComponent<Rigidbody2D>();
-        _defaultSpeed = _maxSpeed;
     }
 
     private void FixedUpdate()
@@ -123,24 +123,47 @@ public class CarController : MonoBehaviour
 
     public void AddSpeed(float speed)
     {
-        _maxSpeed = speed;
-
-        StartCoroutine(YourCoroutine());
+        _maxSpeed += speed;
+        _defaultSpeedBeforeAddSpeed = speed;
+        StartCoroutine(AddSpeedCoroutine());
     }
 
     public void SlowSpeed(float speed)
     {
-        _maxSpeed = speed;
-
-
-        StartCoroutine(YourCoroutine());
+        _maxSpeed -= speed;
+        _defaultSpeedBeforeSlowSpeed = speed;
+        StartCoroutine(SlowSpeedCoroutine());
     }
 
-    IEnumerator YourCoroutine()
+    IEnumerator AddSpeedCoroutine()
     {
-        //Vector2 engineForceVector = transform.up * _accelerationInput * _accelerationFactor;
-        //_carRigidbody2D.AddForce(engineForceVector, ForceMode2D.Force);
-        yield return new WaitForSeconds(3f);
-        _maxSpeed = _defaultSpeed;
+        yield return new WaitForSeconds(2f);
+        _maxSpeed -= _defaultSpeedBeforeAddSpeed;
+    }
+
+    IEnumerator SlowSpeedCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        _maxSpeed += _defaultSpeedBeforeSlowSpeed;
+    }
+
+    public void Reset()
+    {
+        //chassis.Reset();
+
+        //chassis.MotorTorque = 0;
+        //chassis.BreakTorque = 0;
+        //chassis.SteerAngle = 0;
+
+        //ThrottleControl = 0;
+        //BrakeControl = 0;
+        //SteerControl = 0;
+    }
+
+    public void Respawn(Vector3 position, Quaternion rotation)
+    {
+        Reset();
+        transform.position = position;
+        transform.rotation = rotation;
     }
 }
