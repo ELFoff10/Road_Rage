@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -91,7 +92,7 @@ public class CarController : MonoBehaviour
         _carRigidbody2D.velocity = forwardVelocity + rightVelocity * _driftFactor;
     }
 
-    private float GetLateralVelocity()
+    public float GetLateralVelocity()
     {
         return Vector2.Dot(transform.right, _carRigidbody2D.velocity);
     }
@@ -165,5 +166,10 @@ public class CarController : MonoBehaviour
         Reset();
         transform.position = position;
         transform.rotation = rotation;
+    }
+
+    internal float GetVelocityMagnitude()
+    {
+        return _carRigidbody2D.velocity.magnitude;
     }
 }
