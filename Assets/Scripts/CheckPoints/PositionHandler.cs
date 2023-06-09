@@ -10,6 +10,11 @@ public class PositionHandler : MonoBehaviour
 
     private void Awake()
     {
+
+    }
+
+    private void Start()
+    {
         CarLapCounter[] carLapCounterArray = FindObjectsOfType<CarLapCounter>();
 
         CarLapCounters = carLapCounterArray.ToList<CarLapCounter>();
@@ -20,11 +25,11 @@ public class PositionHandler : MonoBehaviour
         }
 
         _leaderBoardUIHandler = FindObjectOfType<LeaderBoardUIHandler>();
-    }
 
-    private void Start()
-    {
-        _leaderBoardUIHandler.UpdateList(CarLapCounters);
+        if (_leaderBoardUIHandler != null)
+        {
+            _leaderBoardUIHandler.UpdateList(CarLapCounters);
+        }
     }
 
     private void OnPassCheckPoint(CarLapCounter carLapCounter)
@@ -38,7 +43,10 @@ public class PositionHandler : MonoBehaviour
         // Tell the lap counter which position the car has
         carLapCounter.SetCarPosition(carPosition);
 
-        _leaderBoardUIHandler.UpdateList(CarLapCounters);
+        if (_leaderBoardUIHandler != null)
+        {
+            _leaderBoardUIHandler.UpdateList(CarLapCounters);
+        }
     }
 }
 

@@ -3,7 +3,11 @@ using UnityEngine;
 [RequireComponent (typeof(CarController))]
 public class CarInputHandler : MonoBehaviour
 {
+    public bool IsUIInput = false;
+
     private CarController _carController;
+
+    private Vector2 _inputVector = Vector2.zero;
 
     private void Awake()
     {
@@ -12,11 +16,23 @@ public class CarInputHandler : MonoBehaviour
 
     private void Update()
     {
-        Vector2 inputVector = Vector2.zero;
+        if (IsUIInput)
+        {
 
-        inputVector.x = Input.GetAxis("Horizontal");
-        //inputVector.y = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            _inputVector = Vector2.zero;
 
-        _carController.SetInputVector(inputVector);
+            _inputVector.x = Input.GetAxis("Horizontal");
+            //inputVector.y = Input.GetAxis("Vertical");
+        }
+
+        _carController.SetInputVector(_inputVector);
+    }
+
+    public void SetInput(Vector2 newInput)
+    {
+        _inputVector = newInput;
     }
 }

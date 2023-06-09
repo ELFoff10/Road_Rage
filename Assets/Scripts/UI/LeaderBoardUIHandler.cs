@@ -8,7 +8,17 @@ public class LeaderBoardUIHandler : MonoBehaviour
 
     private SetLeaderBoardItemInfo[] _setLeaderBoardItemInfo;
 
+    private bool _isInitilized = false;
+
+    private Canvas _canvas;
+
     private void Awake()
+    {
+        _canvas = GetComponent<Canvas>();
+        _canvas.enabled = false;
+    }
+
+    private void Start()
     {
         VerticalLayoutGroup leaderBoardLayoutGroup = GetComponentInChildren<VerticalLayoutGroup>();
 
@@ -24,10 +34,19 @@ public class LeaderBoardUIHandler : MonoBehaviour
 
             _setLeaderBoardItemInfo[i].SetPositionText($"{i + 1}.");
         }
+
+        Canvas.ForceUpdateCanvases();
+
+        _isInitilized = true;
     }
 
     public void UpdateList(List<CarLapCounter> lapCounters)
     {
+        if (!_isInitilized)
+        {
+            return;
+        }
+
         for (int i = 0; i < lapCounters.Count; i++)
         {
             _setLeaderBoardItemInfo[i].SetDriverNameText(lapCounters[i].gameObject.name);
