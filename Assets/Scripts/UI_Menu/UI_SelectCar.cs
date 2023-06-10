@@ -105,7 +105,7 @@ public class UI_SelectCar : MonoBehaviour
         _carUIHandler.SetupCar(_carDatas[_selectedCarIndex]);
         _carUIHandler.StartCarEntranceAnimation(isCarAppearingOnRightSide);
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
 
         _isChangingCar = false;
     }
