@@ -16,6 +16,8 @@ public class LeaderBoardUIHandler : MonoBehaviour
     {
         _canvas = GetComponent<Canvas>();
         _canvas.enabled = false;
+
+        GameManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
 
     private void Start()
@@ -38,6 +40,20 @@ public class LeaderBoardUIHandler : MonoBehaviour
         Canvas.ForceUpdateCanvases();
 
         _isInitilized = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+
+    }
+
+    private void OnGameStateChanged(GameManager gameManager)
+    {
+        if (GameManager.Instance.GetGameState() == GameStates.raceOver)
+        {
+            _canvas.enabled = true;
+        }
     }
 
     public void UpdateList(List<CarLapCounter> lapCounters)

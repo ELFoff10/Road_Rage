@@ -74,8 +74,16 @@ public class CarLapCounter : MonoBehaviour
                 if (_isRaceCompleted == true)
                 {
                     StartCoroutine(ShowPositionCO(100));
+
+                    if (CompareTag("Player"))
+                    {
+                        GameManager.Instance.OnRaceCompleted();
+
+                        GetComponent<CarInputHandler>().enabled = false;
+                        GetComponent<CarAIHandler>().enabled = false;
+                    }
                 }
-                else
+                else if(checkPoint.IsFinishLine)
                 {
                     StartCoroutine(ShowPositionCO(2.5f));
                 }
@@ -95,7 +103,7 @@ public class CarLapCounter : MonoBehaviour
         {
             _isHideRoutineRunning = true;
 
-            yield return new WaitForSeconds(delayUntilHidePosition);
+            yield return new WaitForSeconds(_hideUIDelayTime);
 
             _carPositionText.gameObject.SetActive(false);
 
