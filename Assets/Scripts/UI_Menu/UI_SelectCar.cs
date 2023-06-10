@@ -83,13 +83,11 @@ public class UI_SelectCar : MonoBehaviour
         PlayerPrefs.SetInt("P2SelectedCarID", _carDatas[Random.Range(0, _carDatas.Length)].CarUniqueID);
         PlayerPrefs.SetInt("P2_IsAI", 1);
         PlayerPrefs.SetInt("P3SelectedCarID", _carDatas[Random.Range(0, _carDatas.Length)].CarUniqueID);
-        PlayerPrefs.SetInt("P3_IsAI", 1);
+        PlayerPrefs.SetInt("P3_IsAI", 2);
         PlayerPrefs.SetInt("P4SelectedCarID", _carDatas[Random.Range(0, _carDatas.Length)].CarUniqueID);
-        PlayerPrefs.SetInt("P4_IsAI", 1);
+        PlayerPrefs.SetInt("P4_IsAI", 3);
 
         PlayerPrefs.Save();
-
-        SceneManager.LoadScene("SpawnCar");
     }
 
     IEnumerator SpawnCarCO(bool isCarAppearingOnRightSide)

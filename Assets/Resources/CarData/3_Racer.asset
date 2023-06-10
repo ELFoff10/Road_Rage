@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ef048088eba9f4f8d88e1b197208a2, type: 3}
   m_Name: 3_Racer
   m_EditorClassIdentifier: 
-  _carUniqueID: 0
-  _carUISprite: {fileID: 21300000, guid: ece56c70cfebe3d4f8f24e1ed1c9570f, type: 3}
-  _carPrefab: {fileID: 6115639297621940794, guid: ddd2e8c2229cbb949aa6a148f8d003b7, type: 3}
+  _carUniqueID: 2
+  _carUISprite: {fileID: 21300000, guid: e686798196f4cb34ab2a91285e98036b, type: 3}
+  _carPrefab: {fileID: 8009953912075715981, guid: a1b7dbc9d82e5884bad9e9e6734fa989, type: 3}

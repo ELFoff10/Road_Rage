@@ -8,11 +8,6 @@ public class PositionHandler : MonoBehaviour
 
     private LeaderBoardUIHandler _leaderBoardUIHandler;
 
-    private void Awake()
-    {
-
-    }
-
     private void Start()
     {
         CarLapCounter[] carLapCounterArray = FindObjectsOfType<CarLapCounter>();

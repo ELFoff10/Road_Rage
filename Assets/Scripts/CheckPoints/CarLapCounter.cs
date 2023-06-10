@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CarLapCounter : MonoBehaviour
 {
-    [SerializeField] private Text _carPositionText;
+    //[SerializeField] private Text _carPositionText;
 
     private int _passedCheckPointNumber = 0;
     private float _timeAtLastPassedCheckPoint = 0;
@@ -13,7 +13,7 @@ public class CarLapCounter : MonoBehaviour
     private int _numberOfPassedCheckPoints = 0;
 
     private int _lapsCompleted = 0;
-    private const int _lapsToComplete = 2;
+    private const int _lapsToComplete = 1;
 
     private bool _isRaceCompleted = false;
 
@@ -80,12 +80,12 @@ public class CarLapCounter : MonoBehaviour
                         GameManager.Instance.OnRaceCompleted();
 
                         GetComponent<CarInputHandler>().enabled = false;
-                        GetComponent<CarAIHandler>().enabled = false;
+                        GetComponent<CarAIHandler>().enabled = true;
                     }
                 }
                 else if(checkPoint.IsFinishLine)
                 {
-                    StartCoroutine(ShowPositionCO(2.5f));
+                    StartCoroutine(ShowPositionCO(1.5f));
                 }
             }
         }
@@ -95,9 +95,9 @@ public class CarLapCounter : MonoBehaviour
     {
         _hideUIDelayTime += delayUntilHidePosition;
 
-        _carPositionText.text = _carPosition.ToString();
+        //_carPositionText.text = _carPosition.ToString();
 
-        _carPositionText.gameObject.SetActive(true);
+        //_carPositionText.gameObject.SetActive(true);
 
         if (!_isHideRoutineRunning)
         {
@@ -105,7 +105,7 @@ public class CarLapCounter : MonoBehaviour
 
             yield return new WaitForSeconds(_hideUIDelayTime);
 
-            _carPositionText.gameObject.SetActive(false);
+            //_carPositionText.gameObject.SetActive(false);
 
             _isHideRoutineRunning = false;
         }       

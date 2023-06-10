@@ -6,7 +6,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [Header("Car settings")]
-    [SerializeField] private float _driftFactor = 0.95f;
+    [SerializeField] private float _driftFactor = 0.93f;
     [SerializeField] private float _accelerationFactor = 5f;
     [SerializeField] private float _turnFactor = 3f;
     [SerializeField] private float _maxSpeed = 7f;
@@ -28,6 +28,11 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.GetGameState() == GameStates.countDown)
+        {
+            return;
+        }
+
         ApplyEngineForce();
 
         KillOrthogonalVelocity();
@@ -161,12 +166,12 @@ public class CarController : MonoBehaviour
         //SteerControl = 0;
     }
 
-    public void Respawn(Vector3 position, Quaternion rotation)
-    {
-        Reset();
-        transform.position = position;
-        transform.rotation = rotation;
-    }
+    //public void Respawn(Vector3 position, Quaternion rotation)
+    //{
+    //    Reset();
+    //    transform.position = position;
+    //    transform.rotation = rotation;
+    //}
 
     internal float GetVelocityMagnitude()
     {
