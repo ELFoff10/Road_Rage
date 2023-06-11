@@ -18,6 +18,12 @@ public class CarSFXHandler : MonoBehaviour
         _carController = GetComponent<CarController>();
     }
 
+    private void Start()
+    {
+        _tiresScreechingAudioSource?.Play();
+        _engineAudioSource?.Play();
+    }
+
     private void Update()
     {
         UpdateEngineSFX();

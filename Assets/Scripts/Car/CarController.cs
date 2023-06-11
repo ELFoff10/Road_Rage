@@ -10,6 +10,18 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _accelerationFactor = 5f;
     [SerializeField] private float _turnFactor = 3f;
     [SerializeField] private float _maxSpeed = 7f;
+    [SerializeField] private bool _isEndlessMap = false;
+
+    public float MaxSpeed
+    {
+        get { return _maxSpeed; }
+        set { _maxSpeed = value; }
+    }
+    public bool IsEndlessMap
+    {
+        get { return _isEndlessMap; }
+        set { _isEndlessMap = value; }
+    }
 
     private float _defaultSpeedBeforeAddSpeed;
     private float _defaultSpeedBeforeSlowSpeed;
